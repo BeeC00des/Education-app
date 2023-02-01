@@ -1,5 +1,8 @@
-import { ConstantPool } from "@angular/compiler";
+ 
 import { Component, EventEmitter, Output} from "@angular/core";
+import { NgForm } from "@angular/forms";
+
+import { Post } from "../post.model";
 
 @Component({
   selector:'app-post-create',
@@ -11,13 +14,16 @@ export class PostCreateComponent {
   valueTitle = '';
   valueContent = '';
 
-  @Output() postCreated = new EventEmitter();
+  @Output() postCreated = new EventEmitter<Post>();
   // newPost = 'Grow bee!';
 
-  onAddPost(){
-    const post = {
-      title : this.valueTitle,
-      content: this.valueContent
+  onAddPost(form:NgForm){
+    if (form.invalid){
+      return 
+    }
+    const post:Post = {
+      title : form.value.title,
+      content: form.value.content
     }
     // console.log(post);
     this.postCreated.emit(post)

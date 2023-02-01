@@ -1,21 +1,38 @@
 <mat-card class="container">
-  <mat-form-field appearance="fill" class="size">
-    <input matInput matInput type="text" [(ngModel)]="valueTitle" placeholder="Enter course study">
-  </mat-form-field>
-  <mat-form-field class="size">
-    <textarea matInput row="5" [(ngModel)]="valueContent" placeholder="Description"></textarea>
-  </mat-form-field>
-  
-  <!-- [value]="newPost" #postInput -->
-  <div class="btn-cont">
-    <button
-      class="button"
-      mat-raised-button
-      (click)="onAddPost()"
-    >
-      Save post
-    </button>
-  </div>
-</mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field appearance="fill" class="size">
+      <input
+        matInput
+        matInput
+        type="text"
+        name="title"
+        ngModel
+        placeholder="Enter course study"
+        required
+        #title="ngModel"
+      />
+      <mat-error *ngIf="title.invalid" class="error-text">Please enter a course Description</mat-error>
+    </mat-form-field>
+    <mat-form-field class="size">
+      <textarea
+        matInput
+        row="5"
+        name="content"
+        ngModel
+        placeholder="Description"
+        required
+        #content="ngModel"
+      ></textarea>
+      <mat-error *ngIf="content.invalid" class="error-text">Please enter a course title</mat-error>
+    </mat-form-field>
+   
 
-<!-- <p>{{newPost }}</p> -->
+    <div class="btn-cont">
+      <button class="bu tton" 
+      mat-raised-button 
+      type="submit"
+    >Save post</button>
+    
+    </div>
+  </form>
+</mat-card>
