@@ -1,16 +1,21 @@
-<mat-card>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="valueTitle">
+<mat-card class="container">
+  <mat-form-field appearance="fill" class="size">
+    <input matInput matInput type="text" [(ngModel)]="valueTitle" placeholder="Enter course study">
   </mat-form-field>
-  <mat-form-field>
-    <textarea matInput row ="7" [(ngModel)]="valueContent"></textarea>
+  <mat-form-field class="size">
+    <textarea matInput row="5" [(ngModel)]="valueContent" placeholder="Description"></textarea>
+  </mat-form-field>
+  
   <!-- [value]="newPost" #postInput -->
-  </mat-form-field>
-  <button
-  mat-raised-button
-  color = "primary"
-  (click)="onAddPost()">Save post</button>
+  <div class="btn-cont">
+    <button
+      class="button"
+      mat-raised-button
+      (click)="onAddPost()"
+    >
+      Save post
+    </button>
+  </div>
 </mat-card>
-
 
 <!-- <p>{{newPost }}</p> -->

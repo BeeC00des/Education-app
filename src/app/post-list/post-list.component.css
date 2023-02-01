@@ -1,7 +1,12 @@
 :host {
   display:block;
-  margin-top: 16px;
+  margin-top: 20px;
 }
+
+.list-cont{
+  margin:10px 0px;
+}
+
 
 .info-text{
   text-align: center;

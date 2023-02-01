@@ -1,8 +1,20 @@
-mat-form-field
- textarea {
-  width:100%;
+
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3f51b5;
+  padding: 25px 0px;
 }
 
-button{
-  width:20%;
+.size {
+  width:80%;
+}
+
+.button{
+  color:black;
+  height: 50px !important;
+  width: 150px !important;
+  background-color: whitesmoke;
 }
