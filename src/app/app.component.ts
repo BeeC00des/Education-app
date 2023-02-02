@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Post } from './posts/post.model';
+
 
 @Component({
   selector: 'app-root',
@@ -7,11 +7,6 @@ import { Post } from './posts/post.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // title = 'social-chat-app';
-  storedPosts:Post[] = [];
-
-  onPostAdded(post:any) {
-    this.storedPosts.push(post);
-    // console.log(this.storedPosts);
-  }
+  title = 'social-chat-app';
+ 
 }
