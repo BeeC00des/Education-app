@@ -14,10 +14,7 @@ export class PostCreateComponent {
   valueTitle = '';
   valueContent = '';
 
-  
-  constructor(public PostService: PostService){
-
-    }
+  constructor(public PostService: PostService){}
 
   onAddPost(form:NgForm){
     if (form.invalid){
@@ -26,7 +23,6 @@ export class PostCreateComponent {
     this.PostService.addPost(form.value.title,form.value.content);
     
     form.resetForm();
-    
     
   }
 
