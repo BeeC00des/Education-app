@@ -1,5 +1,5 @@
  
-import { Component, EventEmitter, Output} from "@angular/core";
+import { Component} from "@angular/core";
 import { NgForm } from "@angular/forms";
 
 import { PostService } from "../post.service";
@@ -20,8 +20,8 @@ export class PostCreateComponent {
     if (form.invalid){
       return  
     } 
-    this.PostService.addPost(form.value.title,form.value.content);
-    
+    this.PostService.addPost( form.value.title,form.value.content);
+  
     form.resetForm();
     
   }
