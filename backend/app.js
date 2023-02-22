@@ -1,6 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const mongoose = require('mongoose')
+
+const Post = require('./models/post')
+
+mongoose.connect("mongodb+srv://beecoodes:beecoodes@cluster0.jwhgjnj.mongodb.net/courses-base?retryWrites=true&w=majority")
+    .then(()=>{
+        console.log('connected to database')
+    })
+    .catch(() =>{
+        console.log('connection failed')
+    })
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -21,8 +32,15 @@ app.use((req,res,next) => {
     next();
 })
 
+// beecoodes
+
 app.post("/api/posts",(req, res, next) => {
-    const post = req.body;
+    const post = new Post({
+        title:req.body.title,
+        content:req.body.content
+    });
+
+    post.save();
     console.log(post)
     res.status(201).json({
         message: "post added successfully"
@@ -33,23 +51,17 @@ app.post("/api/posts",(req, res, next) => {
 
 
 app.get('/api/posts',(req, res, next) => {
-    // res.send('hello from express');
-    const posts = [
-        {
-            id: '28u23',
-            title: 'first server side post',
-            content: " this is server running"
-        },
-        {
-            id: '93i845',
-            title: ' second server side post',
-            content: " this is server running"
-        }
-    ];
-    return res.status(200).json({
-        message:'post fetched successfully ',
-        posts: posts
-    });
+   Post.find()
+    .then(documents =>{
+        console.log(documents);
+        res.status(200).json({
+            message:'post fetched successfully ',
+            posts: documents
+        });
+    })
+    .catch(() =>{
+        console.log('Error occurred while fetching document')
+    })
 });
 
 module.exports = app;
