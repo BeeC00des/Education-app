@@ -40,11 +40,16 @@ app.post("/api/posts",(req, res, next) => {
         content:req.body.content
     });
 
-    post.save();
-    console.log(post)
-    res.status(201).json({
-        message: "post added successfully"
+    post.save().then(result =>{
+        // console.log(result)
+
+        res.status(201).json({
+            message: "post added successfully", 
+            postId: result._id
+        });
     });
+    console.log(post)
+    
 });
 
 
@@ -63,5 +68,18 @@ app.get('/api/posts',(req, res, next) => {
         console.log('Error occurred while fetching document')
     })
 });
+
+
+app.delete("/api/posts/:id", (req, res, next) =>{
+    // console.log (req.params.id);
+
+    Post.deleteOne({
+        _id:req.params.id
+    })
+    .then(result =>{
+        console.log(result)
+        res.status(201).json({message:"post deleted"})
+    }) 
+})
 
 module.exports = app;
