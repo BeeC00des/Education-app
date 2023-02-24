@@ -32,7 +32,14 @@ export class PostService {
    }
 
    getPostUpdateListener(){
-        return this.PostUpdated.asObservable();
+      return this.PostUpdated.asObservable();
+
+    }
+
+    getPost(id:string){
+      return {
+        ...this.posts.find(post => post.id == id)
+      }
     }
 
 

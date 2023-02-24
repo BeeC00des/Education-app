@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path:'createpost',
     component:PostCreateComponent
+  },
+  {
+    path:'edit/:postId',
+    component:PostCreateComponent
   }
 ];
 
