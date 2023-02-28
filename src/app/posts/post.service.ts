@@ -70,7 +70,12 @@ export class PostService {
       content:content
     }
     this.http.put("http://localhost:3000/api/posts/" + id, post)
-    .subscribe(response=> console.log(response))
+    .subscribe(response=> {
+      const updatePost = [...this.posts];
+      const oldIndex = updatePost.findIndex(p =>p )
+    }
+      // console.log(response)
+      )
    }
 
    deletePost(postId:string){
