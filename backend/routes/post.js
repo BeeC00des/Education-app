@@ -11,7 +11,7 @@ router.post("",(req, res, next) => {
     });
 
     post.save().then(result =>{
-        // console.log(result)
+        console.log(result)
 
         res.status(201).json({
             message: "post added successfully", 

@@ -50,7 +50,7 @@ export class PostService {
         content:content
     }
     // api/posts
-    this.http.post<{message:string, postId:string}>('http://localhost:3000/', post)
+    this.http.post<{message:string, postId:string}>('http://localhost:3000/api/posts', post)
     .subscribe((responseData) =>{
 
       console.log(responseData);

@@ -21,12 +21,6 @@ export class PostCreateComponent  implements OnInit{
     content: ''
   };
 
-  
-  
-  // post:{
-
-  // }
-
   private mode = 'create';
   private postId:string | null ;
  
