@@ -49,8 +49,8 @@ export class PostService {
         title:title,
         content:content
     }
-
-    this.http.post<{message:string, postId:string}>('http://localhost:3000/api/posts', post)
+    // api/posts
+    this.http.post<{message:string, postId:string}>('http://localhost:3000/', post)
     .subscribe((responseData) =>{
 
       console.log(responseData);
@@ -69,6 +69,8 @@ export class PostService {
       title:title,
       content:content
     }
+
+    
     this.http.put("http://localhost:3000/api/posts/" + id, post)
     .subscribe(response=> {
       const updatePost = [...this.posts];
